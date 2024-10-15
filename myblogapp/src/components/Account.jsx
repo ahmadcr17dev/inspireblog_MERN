@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import logos from '../images/logos.png';
 import hero from '../images/hero.png';
 import { Button } from "@mui/material";
