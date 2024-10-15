@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import logos from '../images/logos.png';
 import login from '../images/login.png';
 import { NavLink, useNavigate } from 'react-router-dom';
@@ -80,7 +80,6 @@ const Login = () => {
         e.preventDefault();
         // const { email, password } = sign;
         try {
-            // console.log("JSON error: ", sign);
             const response = await axios.post('http://localhost:3000/auth/login', sign, {
                 headers: {
                     'Content-Type': 'application/json'

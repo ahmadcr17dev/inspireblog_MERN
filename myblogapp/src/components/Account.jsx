@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logos from '../images/logos.png';
 import hero from '../images/hero.png';
 import { Button } from "@mui/material";
@@ -25,7 +25,7 @@ const Account = () => {
                             <CiEdit size={'1.5rem'} className="edit-icon" />
                         </div>
                         <img src={hero} alt="hero" className="container border-2 border-purple-500 rounded-full h-36 w-36 mx-auto" />
-                        <h5 className="text-center my-4 font-semibold">John Doe</h5>
+                        <h5 className="text-center my-4 font-semibold">name</h5>
                         <p className="text-center">johndoe1031gmail.com</p>
                         <Button
                             variant="contained"
