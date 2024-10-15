@@ -3,7 +3,7 @@ import logos from '../images/logos.png';
 import styled from "styled-components";
 import { HiMiniBars3BottomLeft } from "react-icons/hi2";
 import { HiMiniBars3BottomRight } from "react-icons/hi2";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Stylednavbar = styled.nav`
@@ -61,9 +61,10 @@ const Navbar = () => {
 
     const [menu, setmenu] = useState(true);
     const [authenticated, setauthenticated] = useState(false);
+    const navigate = useNavigate();
 
     useEffect(() => {
-        const token = localStorage.getItem('token');
+        const token = localStorage.getItem('token')
         if (token) {
             setauthenticated(true);
         }
@@ -71,8 +72,9 @@ const Navbar = () => {
 
     const logout = () => {
         localStorage.removeItem('token');
-        setauthenticated(false);
-        toast.success('Logout success');
+        setauthenticated(false)
+        navigate('/');
+        toast.success("Logout Successfully");
     }
 
     const mobilemenu = () => {
