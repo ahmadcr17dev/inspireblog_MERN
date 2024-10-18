@@ -9,7 +9,7 @@ const register = async (req, res) => {
         if (user) {
             return res.status(409).json({ message: "Already Registered", success: false });
         }
-        const newuser = new userModel({
+        const newuser = new usermodel({
             username,
             email,
             password,

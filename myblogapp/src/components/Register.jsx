@@ -86,9 +86,10 @@ const Register = () => {
                 },
             });
             toast.success(response.data.message);
+            console.log('Reg:', response.data)
             navigate('/login');
         } catch (error) {
-            if (error.response) {
+            if (error.response && error.response.data && error.response.data.message) {
                 toast.error(error.response.data.message);
             } else {
                 toast.error('Server error. Please try again later.');

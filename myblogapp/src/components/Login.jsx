@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import logos from '../images/logos.png';
 import login from '../images/login.png';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { json, NavLink, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { Button } from '@mui/material';
 import toast from 'react-hot-toast';
@@ -85,11 +85,11 @@ const Login = () => {
                     'Content-Type': 'application/json'
                 },
             });
-            const { success, jwt, name } = await response.data
+            const { success, jwt, email } = await response.data
             if (success) {
                 toast.success(response.data.message)
                 localStorage.setItem('token', jwt)
-                localStorage.setItem('user', name)
+                localStorage.setItem('email', email)
                 setTimeout(() => {
                     navigate('/');
                 }, 3000)
@@ -98,7 +98,7 @@ const Login = () => {
                 toast.error(response.data.message);
             }
         } catch (error) {
-            if (error.response && error.response.data && error.response.data.message) {
+            if (error.response) {
                 toast.error(error.response.data.message);
             } else {
                 toast.error('Server error. Please try again later.');
